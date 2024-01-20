@@ -1,0 +1,502 @@
+body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-family: 'zabars', Arial, Helvetica, sans-serif;
+    background-image: url('img/5_background/desert.jpg');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    height: 95vh;
+}
+
+@font-face {
+    font-family: 'zabars';
+    src: url('./font/Zabars.ttf') format('truetype');
+}
+
+h1 {
+    font-size: 70px;
+    letter-spacing: 3px;
+    text-shadow: 3px 3px 6px rgba(255, 255, 255, 0.6), -3px -3px 6px rgba(255, 255, 255, 0.6);
+    position: absolute;
+    top: 0;
+    transform: skew(-20deg);
+    margin-left: 5%;
+    margin-top: 20px;
+}
+
+.content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+#canvas-container {
+    height: 480px;
+    width: 720px;
+    position: absolute;
+}
+
+#start-button {
+    position: absolute;
+    left: 35%;
+    top: 6%;
+    background-color: #FF9600;
+    color: white;
+    font-size: 48px;
+    text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.6);
+    padding: 10px;
+    cursor: pointer;
+    border-radius: 10px;
+    border: white 4px solid;
+    width: 200px;
+    height: 44px;
+    transform: skew(-20deg) scale(1);
+    animation: buttonScale 1.5s infinite;
+    font-family: "zabars", Arial, Helvetica, sans-serif;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 2;
+}
+
+@keyframes buttonScale {
+    0% {
+        transform: skew(-20deg) scale(1);
+    }
+
+    50% {
+        transform: skew(-20deg) scale(1.1);
+    }
+
+    100% {
+        transform: skew(-20deg) scale(1);
+    }
+}
+
+#start-button:hover {
+    background-color: #FFB900;
+}
+
+#restart-button {
+    position: absolute;
+    left: 44%;
+    bottom: 6%;
+    background-color: #FF9600;
+    color: white;
+    font-size: 48px;
+    padding: 10px;
+    text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.6);
+    cursor: pointer;
+    border-radius: 10px;
+    border: white 4px solid;
+    width: 200px;
+    height: 44px;
+    transform: skew(-20deg);
+    font-family: "zabars", Arial, Helvetica, sans-serif;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    z-index: 2;
+}
+
+#restart-button:hover {
+    background-color: #FFB900;
+    width: 204px;
+    height: 48px;
+}
+
+#menu {
+    position: absolute;
+    left: 25%;
+    bottom: 6%;
+    background-color: #FF9600;
+    color: white;
+    font-size: 48px;
+    text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.6);
+    padding: 10px;
+    cursor: pointer;
+    border-radius: 10px;
+    border: white 4px solid;
+    width: 100px;
+    height: 44px;
+    transform: skew(-20deg);
+    font-family: "zabars", Arial, Helvetica, sans-serif;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    z-index: 2;
+}
+
+#menu:hover {
+    background-color: #FFB900;
+    width: 104px;
+    height: 48px;
+}
+
+#control-info {
+    position: absolute;
+    height: 100%;
+    width: 300px;
+    background-color: #95CBDF;
+    opacity: 1;
+    z-index: 3;
+    left: 30%;
+    border: 4px solid white;
+    box-sizing: border-box;
+    border-radius: 2px;
+    display: none;
+}
+
+.info-headline {
+    font-size: 45px;
+    width: 130px;
+    transform: skew(-20deg);
+    margin-top: 30px;
+    margin-left: 25px;
+    margin-bottom: 20px;
+    text-decoration: underline;
+}
+
+.second-headline {
+    font-size: 45px;
+    transform: skew(-20deg);
+    margin-top: 30px;
+    margin-left: 25px;
+    margin-bottom: 20px;
+    text-decoration: underline;
+}
+
+.left {
+    margin-left: 20px;
+    margin-top: 15px;
+    margin-bottom: 15px;
+    font-size: 30px;
+    transform: skew(-20deg);
+}
+
+.control-box {
+    display: flex;
+    align-items: center;
+    gap: 80px;
+    margin-top: 10px;
+}
+
+#full-size-logo {
+    position: absolute;
+    z-index: 2;
+    right: 5px;
+    top: 5px;
+    cursor: pointer;
+    height: 45px;
+    width: 45px;
+}
+
+#full-size-logo:hover {
+    height: 50px;
+    width: 50px;
+}
+
+#info-icon {
+    position: absolute;
+    z-index: 2;
+    right: 120px;
+    height: 45px;
+    width: 45px;
+    top: 4px;
+    cursor: pointer;
+}
+
+#info-icon:hover {
+    height: 50px;
+    width: 50px;
+}
+
+#sound-icon {
+    position: absolute;
+    z-index: 2;
+    height: 43px;
+    width: 43px;
+    right: 60px;
+    top: 6px;
+    cursor: pointer;
+}
+
+#sound-icon:hover {
+    height: 49px;
+    width: 49px;
+}
+
+#mobile-controls {
+    position: absolute;
+    bottom: 0;
+    width: 98%;
+    justify-content: space-around;
+    padding: 5px;
+    z-index: 2;
+    bottom: 4px;
+    display: none;
+}
+
+#rotate-device {
+    position: absolute;
+    top: 0;
+    z-index: 3;
+    height: 100%;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    background-color: white;
+    display: none;
+}
+
+.rotate-text {
+    margin-top: 100px;
+    font-size: 70px;
+    transform: skew(-20deg);
+}
+
+.rotate-img {
+    height: 400px;
+    width: 300px;
+}
+
+.flex-box {
+    width: 150px;
+    display: flex;
+    justify-content: space-between;
+    gap: 50px;
+    margin-right: 195px;
+}
+
+.flex-box-right {
+    width: 150px;
+    display: flex;
+    justify-content: space-between;
+    gap: 50px;
+    margin-right: 160px;
+}
+
+.circle {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 20px;
+    border: 4px solid #FF9600;
+    background-color: #fff;
+    margin: 0 10px;
+    cursor: pointer;
+    box-shadow: 0 0 0 2px white;
+}
+
+.circle:hover {
+    background-color: lightyellow;
+
+}
+
+.bottle {
+    cursor: pointer;
+}
+
+.arrow-image {
+    height: 40px;
+    width: 40px;
+}
+
+#cancel-button {
+    font-size: 20px;
+    font-family: Arial, Helvetica, sans-serif;
+    color: #95CBDF;
+    background-color: white;
+    position: absolute;
+    border-radius: 50%;
+    width: 25px;
+    height: 25px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    right: 5px;
+    top: 5px;
+    padding-bottom: 2px;
+}
+
+#cancel-button:hover {
+    color: black;
+}
+
+.margin {
+    margin-left: 13px;
+}
+
+.space {
+    width: 60px;
+    margin-left: 50px;
+}
+
+.space-text {
+    position: absolute;
+    margin-bottom: 5px;
+    left: 216px;
+    color: white;
+}
+
+.d-key {
+    margin-right: 20px;
+}
+
+.throw-box {
+    display: flex;
+    align-items: center;
+    gap: 58px;
+    margin-top: 10px;
+}
+
+.buy-box {
+    display: flex;
+    align-items: center;
+    gap: 83px;
+    margin-top: 10px;
+}
+
+.next-box {
+    display: flex;
+    align-items: center;
+    position: absolute;
+    right: 10px;
+    bottom: 3px;
+    gap: 10px;
+}
+
+.back-box {
+    display: flex;
+    align-items: center;
+    position: absolute;
+    left: 10px;
+    bottom: 3px;
+    gap: 10px;
+}
+
+.next-text {
+    font-size: 20px;
+    transform: skew(-20deg);
+}
+
+.next-page-image {
+    height: 30px;
+    width: 30px;
+    cursor: pointer;
+}
+
+.story-text {
+    padding-left: 10px;
+    padding-right: 10px;
+    font-size: 24px;
+}
+
+.bottle-image {
+    height: 40px;
+    width: 40px;
+}
+
+canvas {
+    background-position: center;
+    background-size: 720px 480px;
+    display: block;
+    border-radius: 20px;
+    position: relative;
+}
+
+.d-none {
+    display: none !important;
+}
+
+.d-block {
+    display: block !important;
+}
+
+.d-flex {
+    display: flex !important;
+}
+
+@media only screen and (max-width: 750px) {
+    #rotate-device {
+        display: flex;
+    }
+
+    .content {
+        display: none;
+    }
+}
+
+@media only screen and (max-width: 560px) {
+    .rotate-text {
+        font-size: 55px;
+        margin-top: 0;
+    }
+}
+
+@media only screen and (max-width: 450px) {
+    .rotate-text {
+        font-size: 34px;
+    }
+
+    .rotate-img {
+        height: 300px;
+        width: 200px;
+    }
+}
+
+@media screen and (max-height: 500px) and (orientation: landscape) {
+    #rotate-device {
+        display: none;
+    }
+
+    .content {
+        display: flex;
+    }
+
+    #canvas-container {
+        height: 100%;
+        width: 100%;
+    }
+
+    canvas {
+        height: 100%;
+        width: 100%;
+        border-radius: 0;
+    }
+
+    h1 {
+        display: none;
+    }
+
+    #restart-button {
+        left: 46%;
+        bottom: 2%;
+    }
+
+    #menu {
+        bottom: 2%;
+    }
+
+    .left {
+        margin-bottom: 0;
+    }
+
+    .info-headline {
+        margin-bottom: 0;
+        margin-top: 10px;
+    }
+
+    #mobile-controls {
+        display: flex;
+    }
+}

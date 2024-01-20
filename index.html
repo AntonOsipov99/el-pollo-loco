@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html translate="no">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/x-icon" href="./img/5_background/favicon.png">
+    <link rel="stylesheet" href="./style.css">
+    <link rel="stylesheet" href="./font/fonts.css">
+    <script src="./models/drawable-object.class.js"></script>
+    <script src="./models/movable-object.class.js"></script>
+    <script src="./models/bottle.class.js"></script>
+    <script src="./models/throwable.class.js"></script>
+    <script src="./models/character.class.js"></script>
+    <script src="./models/chicken.class.js"></script>
+    <script src="./models/chicks.class.js"></script>
+    <script src="./models/cloud.class.js"></script>
+    <script src="./models/background-object.class.js"></script>
+    <script src="./models/status-bar-health.class.js"></script>
+    <script src="./models/status-bar-coins.class.js"></script>
+    <script src="./models/status-bar-boss.class.js"></script>
+    <script src="./models/coin.class.js"></script>
+    <script src="./models/status-bar-bottles.class.js"></script>
+    <script src="./models/titlescreen.class.js"></script>
+    <script src="./models/world.class.js"></script>
+    <script src="./models/keyboard.class.js"></script>
+    <script src="./models/level.class.js"></script>
+    <script src="./models/endboss.class.js"></script>
+    <script src="./levels/level1.js"></script>
+    <script src="./js/game.js"></script>
+    <title>El Pollo Loco</title>
+</head>
+<body onload="init()">
+    <div id="rotate-device">
+        <div class="rotate-text">Please rotate your Device</div><img src="./img/5_background/rotate-device.png"
+            class="rotate-img">
+    </div>
+    <div class="content">
+        <h1>El Pollo Loco</h1>
+        <div id="canvas-container">
+            <div id="start-button">Start Game</div>
+            <img src="./img/9_intro_outro_screens/start/info.png" alt="info-icon" id="info-icon" onclick="toggleInfo()">
+            <img src="./img/9_intro_outro_screens/start/mute.png" alt="mute-icon" id="sound-icon">
+            <img src="./img/9_intro_outro_screens/start/fullscreen-white.png" id="full-size-logo" alt="full-size-logo"
+                onclick="toggleFullscreen()">
+            <div id="menu">Menu</div>
+            <div id="restart-button">Restart Game</div>
+            <div id="mobile-controls">
+                <div class="flex-box">
+                    <div class="circle left-arrow" id="left-btn"><img
+                            src="./img/5_background/mobile-controls/left-arrow.png" alt="left-arrow-image"
+                            class="arrow-image"></div>
+                    <div class="circle right-arrow" id="right-btn"><img
+                            src="./img/5_background/mobile-controls/right-arrow.png" alt="right-arrow-image"
+                            class="arrow-image"></div>
+                </div>
+                <div class="flex-box-right">
+                    <div class="circle up-arrow" id="jump-btn"><img
+                            src="./img/5_background/mobile-controls/up-arrow.png" alt="up-arrow-image"
+                            class="arrow-image"></div>
+                    <div class="circle bottle" id="throw-btn"><img
+                            src="./img/5_background/mobile-controls/salsa_bottle.png" alt="bottle-image"
+                            class="bottle-image"></div>
+                    <div class="circle bottle" id="buy-btn"><img src="./img/5_background/mobile-controls/add-bottle.png"
+                            alt="add-bottle-image" class="bottle-image"></div>
+                </div>
+            </div>
+            <div id="control-info">
+                <div id="cancel-button" onclick="toggleInfo()">x</div>
+                <div id="second-page"></div>
+                <div id="first-page">
+                    <p class="info-headline">Controls</p>
+                    <div class="control-box">
+                        <p class="left">Move Left</p><img src="./img/5_background/mobile-controls/left-info.png"
+                            alt="left-arrow-image" class=" margin">
+                    </div>
+                    <div class="control-box">
+                        <p class="left">Move Right</p><img src="./img/5_background/mobile-controls/right-info.png"
+                            alt="right-arrow-image">
+                    </div>
+                    <div class="control-box">
+                        <p class="left">Jump</p><span class="space-text">Space</span><img
+                            src="./img/5_background/mobile-controls/space.png" alt="up-arrow-image" class="space">
+                    </div>
+                    <div class="throw-box">
+                        <p class="left">Throw Bottle</p><img src="./img/5_background/mobile-controls/d-key.png"
+                            alt="bottle-image" class="d-key">
+                    </div>
+                    <div class="buy-box">
+                        <p class="left">Buy Bottle</p><img src="./img/5_background/mobile-controls/f-key.png"
+                            alt="bottle-image" class="d-key">
+                    </div>
+                    <div class="next-box">
+                        <div class="next-text">Next</div><img
+                            src="./img/5_background/mobile-controls/next-page.png" alt="next-page-image"
+                            class="next-page-image" onclick="changeToSecondPage()">
+                    </div>
+                </div>
+            </div>
+
+            <canvas id="canvas" width="720px" height="480px">
+
+            </canvas>
+        </div>
+    </div>
+</body>
+</html>
